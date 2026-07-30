@@ -1,0 +1,202 @@
+[gd_scene format=3 uid="uid://crrnpvbi0pdo3"]
+
+[ext_resource type="Script" uid="uid://cemjqrfbchkyx" path="res://timer.gd" id="1_ye2uk"]
+[ext_resource type="Shader" uid="uid://wgnwvjlgnqd3" path="res://bg.gdshader" id="2_ye2uk"]
+[ext_resource type="Texture2D" uid="uid://dwyo5bxntu4f0" path="res://Gear.png" id="3_mxtnu"]
+[ext_resource type="Shader" uid="uid://c6jcwx086gr4d" path="res://blur.gdshader" id="4_kurt1"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_g4v7s"]
+shader = ExtResource("2_ye2uk")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_yf5fn"]
+shader = ExtResource("4_kurt1")
+shader_parameter/blur = 3.42800016283
+
+[node name="Timer" type="Control" unique_id=1923665523]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_ye2uk")
+
+[node name="Timer" type="Timer" parent="." unique_id=1354222541]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=422653339]
+volume_db = -10.0
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=626945191]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=713747049]
+material = SubResource("ShaderMaterial_g4v7s")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -27.0
+offset_top = -35.526306
+offset_right = 27.0
+offset_bottom = 35.526306
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Control" type="Control" parent="CanvasLayer" unique_id=639340978]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBC" type="VBoxContainer" parent="CanvasLayer/Control" unique_id=579802249]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 16.0
+offset_right = -16.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 2
+
+[node name="TimeLeftLabel" type="Label" parent="CanvasLayer/Control/VBC" unique_id=1384225364]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Поставьте таймер"
+horizontal_alignment = 1
+
+[node name="TimeLeftCounterLabel" type="Label" parent="CanvasLayer/Control/VBC" unique_id=947335796]
+layout_mode = 2
+theme_override_font_sizes/font_size = 64
+text = "00:00"
+horizontal_alignment = 1
+
+[node name="StartStop" type="HBoxContainer" parent="CanvasLayer/Control/VBC" unique_id=2098110380]
+layout_mode = 2
+alignment = 1
+
+[node name="StartOrStopButton" type="Button" parent="CanvasLayer/Control/VBC/StartStop" unique_id=994773358]
+layout_mode = 2
+text = "Начать"
+
+[node name="PauseButton" type="Button" parent="CanvasLayer/Control/VBC/StartStop" unique_id=1367180178]
+layout_mode = 2
+text = "Пауза"
+
+[node name="TimeLabel" type="Label" parent="CanvasLayer/Control/VBC" unique_id=1517527389]
+layout_mode = 2
+text = "Время таймера"
+horizontal_alignment = 1
+
+[node name="Time" type="HBoxContainer" parent="CanvasLayer/Control/VBC" unique_id=1576781741]
+layout_mode = 2
+alignment = 1
+
+[node name="SpinBox" type="SpinBox" parent="CanvasLayer/Control/VBC/Time" unique_id=1065847144]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/Control/VBC/Time" unique_id=449138422]
+layout_mode = 2
+text = "в минутах"
+
+[node name="ActivityLabel" type="Label" parent="CanvasLayer/Control/VBC" unique_id=1886922922]
+layout_mode = 2
+text = "Название задачи"
+horizontal_alignment = 1
+
+[node name="ActivityLineEdit" type="LineEdit" parent="CanvasLayer/Control/VBC" unique_id=1218227731]
+layout_mode = 2
+
+[node name="OlderActivitiesLabel" type="Label" parent="CanvasLayer/Control/VBC" unique_id=791891569]
+layout_mode = 2
+text = "Прошлые задачи"
+horizontal_alignment = 1
+
+[node name="HistoryScroll" type="ScrollContainer" parent="CanvasLayer/Control/VBC" unique_id=1023913104]
+custom_minimum_size = Vector2(0, 125)
+layout_mode = 2
+horizontal_scroll_mode = 0
+
+[node name="OlderActivitiesItemList" type="VBoxContainer" parent="CanvasLayer/Control/VBC/HistoryScroll" unique_id=264256647]
+layout_mode = 2
+
+[node name="DeleteSelectedOldActivities" type="Button" parent="CanvasLayer/Control/VBC" unique_id=458463512]
+layout_mode = 2
+text = "Удалить выбранные записи"
+
+[node name="SettingsButton" type="Button" parent="CanvasLayer/Control" unique_id=160362698]
+texture_filter = 1
+layout_mode = 0
+offset_left = 336.0
+offset_top = 3.0
+offset_right = 376.0
+offset_bottom = 43.0
+icon = ExtResource("3_mxtnu")
+
+[node name="Settings" type="CanvasLayer" parent="." unique_id=1342549436]
+visible = false
+
+[node name="Control" type="Control" parent="Settings" unique_id=724777209]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="BGBlur" type="ColorRect" parent="Settings/Control" unique_id=1025308540]
+material = SubResource("ShaderMaterial_yf5fn")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.6745098)
+
+[node name="BGBlackness" type="ColorRect" parent="Settings/Control" unique_id=369296482]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -15.0
+offset_top = -19.736816
+offset_right = 15.0
+offset_bottom = 19.736816
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(3.4593977e-08, 0.045852907, 0.078735165, 0.69411767)
+
+[node name="VBC" type="VBoxContainer" parent="Settings/Control" unique_id=1723442762]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 22.0
+offset_right = -22.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="SettingsTitleLabel" type="Label" parent="Settings/Control/VBC" unique_id=2057243807]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Настройки"
+horizontal_alignment = 1
+
+[node name="OpenAlarmFolderButton" type="Button" parent="Settings/Control/VBC" unique_id=890803991]
+layout_mode = 2
+text = "Открыть папку с звуком таймера"
+
+[node name="ChangeAlarmGuideLabel" type="Label" parent="Settings/Control/VBC" unique_id=1389346038]
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+text = "Загрузите свой звук таймера, добавив файл в папку, что открывается выше. Файл обязательно должен быть формата mp3 и иметь название alarm.mp3"
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="ExitSettingsButton" type="Button" parent="Settings/Control" unique_id=792297978]
+modulate = Color(1, 0.54124093, 0.4767593, 1)
+texture_filter = 1
+layout_mode = 0
+offset_left = 336.0
+offset_top = 3.0
+offset_right = 376.0
+offset_bottom = 43.0
+icon = ExtResource("3_mxtnu")
