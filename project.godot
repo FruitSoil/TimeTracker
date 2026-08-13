@@ -11,9 +11,10 @@ config_version=5
 [application]
 
 config/name="TimeTracker"
+config/tags=PackedStringArray("personal", "project")
 run/main_scene="res://timer.tscn"
 config/features=PackedStringArray("4.7", "GL Compatibility")
-config/icon="uid://083ycubjmpcb"
+config/icon="uid://df5v15qr0lhmf"
 
 [display]
 

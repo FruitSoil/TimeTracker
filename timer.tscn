@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://cemjqrfbchkyx" path="res://timer.gd" id="1_ye2uk"]
 [ext_resource type="Shader" uid="uid://wgnwvjlgnqd3" path="res://bg.gdshader" id="2_ye2uk"]
 [ext_resource type="Texture2D" uid="uid://dwyo5bxntu4f0" path="res://Gear.png" id="3_mxtnu"]
+[ext_resource type="Texture2D" uid="uid://boaxs1f6owl2m" path="res://Curcle.png" id="4_kpl8e"]
 [ext_resource type="Shader" uid="uid://c6jcwx086gr4d" path="res://blur.gdshader" id="4_kurt1"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_g4v7s"]
@@ -90,6 +91,8 @@ alignment = 1
 
 [node name="SpinBox" type="SpinBox" parent="CanvasLayer/Control/VBC/Time" unique_id=1065847144]
 layout_mode = 2
+max_value = 60.0
+allow_greater = true
 
 [node name="Label" type="Label" parent="CanvasLayer/Control/VBC/Time" unique_id=449138422]
 layout_mode = 2
@@ -122,17 +125,30 @@ text = "Удалить выбранные записи"
 
 [node name="SettingsButton" type="Button" parent="CanvasLayer/Control" unique_id=160362698]
 texture_filter = 1
-layout_mode = 0
-offset_left = 336.0
-offset_top = 3.0
-offset_right = 376.0
-offset_bottom = 43.0
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -48.0
+offset_top = 8.0
+offset_right = -8.0
+offset_bottom = 48.0
+grow_horizontal = 0
 icon = ExtResource("3_mxtnu")
 
+[node name="HideButton" type="Button" parent="CanvasLayer/Control" unique_id=116373353]
+texture_filter = 1
+layout_mode = 1
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 48.0
+offset_bottom = 48.0
+icon = ExtResource("4_kpl8e")
+
 [node name="Settings" type="CanvasLayer" parent="." unique_id=1342549436]
-visible = false
 
 [node name="Control" type="Control" parent="Settings" unique_id=724777209]
+visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -182,7 +198,7 @@ horizontal_alignment = 1
 
 [node name="OpenAlarmFolderButton" type="Button" parent="Settings/Control/VBC" unique_id=890803991]
 layout_mode = 2
-text = "Открыть папку с звуком таймера"
+text = "Открыть папку приложения"
 
 [node name="ChangeAlarmGuideLabel" type="Label" parent="Settings/Control/VBC" unique_id=1389346038]
 layout_mode = 2
